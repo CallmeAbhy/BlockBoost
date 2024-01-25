@@ -1,8 +1,8 @@
 require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
-const INFURA_API_KEY = "65941d6610c34a228a827fad4612479f";
+const INFURA_API_KEY = "XXXXXXX";
 const SEPOLIA_PRIVATE_KEY =
-  "6c7c888e6057588f26db5c6e10b8c036b6a575bd959520c632be1bd485afe898";
+  "XXXXXXXX";
 
 module.exports = {
   networks: {

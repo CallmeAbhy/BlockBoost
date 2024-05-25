@@ -3,7 +3,6 @@ import { FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { createProject } from "../services/blockchain";
 import { useGlobalState, setGlobalState } from "../store";
-import web3 from "web3";
 
 const CreateProject = () => {
   const [createModal] = useGlobalState("createModal");
@@ -18,38 +17,17 @@ const CreateProject = () => {
     return dateObj / 1000;
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   if (!title || !description || !cost || !date || !imageURL) return
-
-  //   const params = {
-  //     title,
-  //     description,
-  //     cost,
-  //     expiresAt: toTimestamp(date),
-  //     imageURL,
-  //   }
-
-  //   await createProject(params)
-  //   toast.success('Project created successfully, will reflect in 30sec.')
-  //   onClose()
-  // }
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !description || !cost || !date || !imageURL) return;
 
-    // Convert cost to Wei (1 ETH = 10^18 Wei)
-    const costWei = web3.utils.toWei(cost, "ether");
-
     const params = {
       title,
       description,
-      cost: costWei,
+      cost,
       expiresAt: toTimestamp(date),
       imageURL,
     };
-
-    console.log("Submitted project parameters:", params);
 
     await createProject(params);
     toast.success("Project created successfully, will reflect in 30sec.");

@@ -1,16 +1,16 @@
-import Identicons from 'react-identicons'
-import { FaEthereum } from 'react-icons/fa'
+import Identicons from "react-identicons";
+import { FaEthereum } from "react-icons/fa";
 import {
   daysRemaining,
   setGlobalState,
   truncate,
   useGlobalState,
-} from '../store'
-import { payoutProject } from '../services/blockchain'
+} from "../store";
+import { payoutProject } from "../services/blockchain";
 
 const ProjectDetails = ({ project }) => {
-  const [connectedAccount] = useGlobalState('connectedAccount')
-  const expired = new Date().getTime() > Number(project?.expiresAt + '000')
+  const [connectedAccount] = useGlobalState("connectedAccount");
+  const expired = new Date().getTime() > Number(project?.expiresAt + "000");
 
   return (
     <div className="pt-24 mb-5 px-6 flex justify-center">
@@ -32,8 +32,8 @@ const ProjectDetails = ({ project }) => {
               </h5>
               <small className="text-gray-500">
                 {expired
-                  ? 'Expired'
-                  : daysRemaining(project.expiresAt) + ' left'}
+                  ? "Expired"
+                  : daysRemaining(project.expiresAt) + " left"}
               </small>
             </div>
 
@@ -50,7 +50,7 @@ const ProjectDetails = ({ project }) => {
                   </small>
                 ) : null}
                 <small className="text-gray-500 font-bold">
-                  {project?.backers} Backer{project?.backers == 1 ? '' : 's'}
+                  {project?.backers} Backer{project?.backers == 1 ? "" : "s"}
                 </small>
               </div>
 
@@ -99,7 +99,7 @@ const ProjectDetails = ({ project }) => {
                     className="inline-block px-6 py-2.5 bg-green-600
               text-white font-medium text-xs leading-tight uppercase
               rounded-full shadow-md hover:bg-green-700"
-                    onClick={() => setGlobalState('backModal', 'scale-100')}
+                    onClick={() => setGlobalState("backModal", "scale-100")}
                   >
                     Back Project
                   </button>
@@ -112,7 +112,7 @@ const ProjectDetails = ({ project }) => {
                         type="button"
                         className="inline-block px-6 py-2.5 bg-orange-600
                         text-white font-medium text-xs leading-tight uppercase
-                        rounded-full shadow-md hover:bg-orange-700"
+                        rounded-full shadow-md hover:bg-orange-700 "
                         onClick={() => payoutProject(project?.id)}
                       >
                         Payout
@@ -125,7 +125,7 @@ const ProjectDetails = ({ project }) => {
                           text-white font-medium text-xs leading-tight uppercase
                           rounded-full shadow-md hover:bg-gray-700"
                           onClick={() =>
-                            setGlobalState('updateModal', 'scale-100')
+                            setGlobalState("updateModal", "scale-100")
                           }
                         >
                           Edit
@@ -136,7 +136,7 @@ const ProjectDetails = ({ project }) => {
                           text-white font-medium text-xs leading-tight uppercase
                           rounded-full shadow-md hover:bg-red-700"
                           onClick={() =>
-                            setGlobalState('deleteModal', 'scale-100')
+                            setGlobalState("deleteModal", "scale-100")
                           }
                         >
                           Delete
@@ -160,7 +160,7 @@ const ProjectDetails = ({ project }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectDetails
+export default ProjectDetails;

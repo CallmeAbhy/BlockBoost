@@ -1,6 +1,6 @@
-import { setGlobalState, useGlobalState } from '../store'
+import { setGlobalState, useGlobalState } from "../store";
 const Hero = () => {
-  const [stats] = useGlobalState('stats')
+  const [stats] = useGlobalState("stats");
 
   return (
     <div className="text-center bg-white text-gray-800 py-24 px-6">
@@ -8,9 +8,11 @@ const Hero = () => {
         className="text-5xl md:text-6xl xl:text-7xl font-bold
       tracking-tight mb-12"
       >
-        <span className="capitalize">Bring creative projects to life on</span>
+        <span className="capitalize">
+          Empowering Dreams, Funding Futures Together with
+        </span>
         <br />
-        <span className="uppercase text-green-600">genesis.</span>
+        <span className="uppercase text-green-600">BlockchainBoost</span>
       </h1>
       <div className="flex justify-center items-center space-x-2">
         <button
@@ -18,7 +20,7 @@ const Hero = () => {
           className="inline-block px-6 py-2.5 bg-green-600
         text-white font-medium text-xs leading-tight uppercase
         rounded-full shadow-md hover:bg-green-700"
-          onClick={() => setGlobalState('createModal', 'scale-100')}
+          onClick={() => setGlobalState("createModal", "scale-100")}
         >
           Add Project
         </button>
@@ -73,7 +75,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

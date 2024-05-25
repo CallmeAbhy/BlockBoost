@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import { FaTimes } from 'react-icons/fa'
-import { toast } from 'react-toastify'
-import { updateProject } from '../services/blockchain'
-import { useGlobalState, setGlobalState } from '../store'
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { updateProject } from "../services/blockchain";
+import { useGlobalState, setGlobalState } from "../store";
 
 const UpdateProject = ({ project }) => {
-  const [updateModal] = useGlobalState('updateModal')
-  const [title, setTitle] = useState(project?.title)
-  const [description, setDescription] = useState(project?.description)
-  const [date, setDate] = useState(project?.date)
-  const [imageURL, setImageURL] = useState(project?.imageURL)
+  const [updateModal] = useGlobalState("updateModal");
+  const [title, setTitle] = useState(project?.title);
+  const [description, setDescription] = useState(project?.description);
+  const [date, setDate] = useState(project?.date);
+  const [imageURL, setImageURL] = useState(project?.imageURL);
 
   const toTimestamp = (dateStr) => {
-    const dateObj = Date.parse(dateStr)
-    return dateObj / 1000
-  }
+    const dateObj = Date.parse(dateStr);
+    return dateObj / 1000;
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!title || !description || !date || !imageURL) return
+    e.preventDefault();
+    if (!title || !description || !date || !imageURL) return;
 
     const params = {
       id: project?.id,
@@ -26,16 +26,16 @@ const UpdateProject = ({ project }) => {
       description,
       expiresAt: toTimestamp(date),
       imageURL,
-    }
+    };
 
-    await updateProject(params)
-    toast.success('Project updated successffully, will reflect in 30sec.')
-    onClose()
-  }
+    await updateProject(params);
+    toast.success("Project updated successffully, will reflect in 30sec.");
+    onClose();
+  };
 
   const onClose = () => {
-    setGlobalState('updateModal', 'scale-0')
-  }
+    setGlobalState("updateModal", "scale-0");
+  };
 
   return (
     <div
@@ -64,7 +64,7 @@ const UpdateProject = ({ project }) => {
               <img
                 src={
                   imageURL ||
-                  'https://media.wired.com/photos/5926e64caf95806129f50fde/master/pass/AnkiHP.jpg'
+                  "https://media.wired.com/photos/5926e64caf95806129f50fde/master/pass/AnkiHP.jpg"
                 }
                 alt="project title"
                 className="h-full w-full object-cover cursor-pointer"
@@ -151,7 +151,7 @@ const UpdateProject = ({ project }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UpdateProject
+export default UpdateProject;

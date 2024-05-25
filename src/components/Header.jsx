@@ -1,10 +1,10 @@
-import { TbBusinessplan } from 'react-icons/tb'
-import { Link } from 'react-router-dom'
-import { connectWallet } from '../services/blockchain'
-import { truncate, useGlobalState } from '../store'
+import { TbBusinessplan } from "react-icons/tb";
+import { Link } from "react-router-dom";
+import { connectWallet } from "../services/blockchain";
+import { truncate, useGlobalState } from "../store";
 
 const Header = () => {
-  const [connectedAccount] = useGlobalState('connectedAccount')
+  const [connectedAccount] = useGlobalState("connectedAccount");
 
   return (
     <header
@@ -16,7 +16,7 @@ const Header = () => {
         className="flex justify-start items-center
       text-xl text-black space-x-1"
       >
-        <span>Genesis</span>
+        <span>BlockchainBoost</span>
         <TbBusinessplan />
       </Link>
 
@@ -43,7 +43,7 @@ const Header = () => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
